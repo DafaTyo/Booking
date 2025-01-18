@@ -1,0 +1,156 @@
+[{
+  "_id": {
+    "$oid": "67406f0c7c2819b32ecbad91"
+  },
+  "nama": "GOR Bintang Nusantara",
+  "lokasi": "Jakarta Barat",
+  "banner": "lapangan1.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "160000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "155000"
+    },
+    {
+      "namaLapangan": "Lapangan 3",
+      "harga": "170000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67406f6a7c2819b32ecbad92"
+  },
+  "nama": "Lapangan Smash 78",
+  "lokasi": "Bekasi Selatan",
+  "banner": "lapangan2.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "175000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "180000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67406f8d7c2819b32ecbad93"
+  },
+  "nama": "GOR Badminton Lestari",
+  "lokasi": "Tanggerang Selatan",
+  "banner": "lapangan3.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "185000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "190000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67406f9f7c2819b32ecbad94"
+  },
+  "nama": "GOR Net Prima",
+  "lokasi": "Jakarta Barat",
+  "banner": "lapangan4.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "165000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "170000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67406fc37c2819b32ecbad95"
+  },
+  "nama": "Zona Shuttle Depok",
+  "lokasi": "Depok",
+  "banner": "lapangan5.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "160000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "165000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67406fdc7c2819b32ecbad96"
+  },
+  "nama": "Sport Center Garuda",
+  "lokasi": "Bekasi Timur",
+  "banner": "lapangan6.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "165000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "170000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67406fef7c2819b32ecbad97"
+  },
+  "nama": "Arena Shuttle Jakarta",
+  "lokasi": "Jakarta Selatan",
+  "banner": "lapangan7.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "180000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "185000"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "674070007c2819b32ecbad98"
+  },
+  "nama": "GOR GIR GUR",
+  "lokasi": "Jakarta Barat",
+  "banner": "lapangan8.png",
+  "kontak": "08129274924",
+  "lapangan": [
+    {
+      "namaLapangan": "Lapangan 1",
+      "harga": "140000"
+    },
+    {
+      "namaLapangan": "Lapangan 2",
+      "harga": "145000"
+    }
+  ]
+}]

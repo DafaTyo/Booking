@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "677aa2fba89b6e63164d635f"
+  },
+  "nama": "udin",
+  "email": "udin@gmail.com",
+  "no_telp": "082128379485",
+  "alamat": "",
+  "foto": "",
+  "password": "scrypt:32768:8:1$DXU47DPG8PUvk7wA$56d2aff4db1c47415d3b8400cd382628431a566d0fd922f18b48f254f52e6eed56d7711c65f519952b265623a438117a4f9dd7e4ed47b084e96a623b5cd3cce4"
+},
+{
+  "_id": {
+    "$oid": "677ba27d8a7f77821016f5e7"
+  },
+  "nama": "123",
+  "email": "123@gmail.com",
+  "no_telp": "123",
+  "alamat": "123",
+  "foto": "bg2.jpg",
+  "password": "scrypt:32768:8:1$qhkQLQgeGQeGKjPB$14156880a667db3e45b51c60be40211c893d33c8a5b3be6e3fb4834af1e26e960496ab99dd39827be04c8d200a0848bcff287b5dcbded56a79cae7718b3430a1"
+}]
