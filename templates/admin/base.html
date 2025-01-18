@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+	<link rel="icon" href="{{url_for('static',filename='dist/img/Logo Hitam.png')}}">
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.5/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/styleAdmin.css')}}">
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">AdminHub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="{% if halaman == 'Dashboard' %}active{% endif %}">
+				<a href="{{ url_for('admin') }}">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li class="{% if halaman == 'Lapangan' %}active{% endif %}">
+				<a href="{{ url_for('lapangan') }}">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Lapangan</span>
+				</a>
+			</li>
+            <li class="{% if halaman == 'Pengguna' %}active{% endif %}">
+                <a href="{{ url_for('pengguna') }}">
+                    <i class='bx bxs-group' ></i>
+                    <span class="text">Pengguna</span>
+                </a>
+            </li>
+			<li class="{% if halaman == 'Pemesanan' %}active{% endif %}">
+				<a href="{{ url_for('pemesanan') }}">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Pemesanan</span>
+				</a>
+			</li>
+			<li class="{% if halaman == 'Riwayat' %}active{% endif %}">
+				<a href="{{ url_for('riwayat') }}">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Riwayat</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{ url_for('admin_logout') }}" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+            {% block content %}{% endblock %}
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            admin()
+			{% block script %}{% endblock %}
+        })
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.5/sweetalert2.all.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{url_for('static', filename='dist/js/script.js')}}"></script> 
+</body>
+</html>

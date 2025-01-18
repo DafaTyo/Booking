@@ -1,0 +1,117 @@
+{% extends "admin/base.html" %} 
+{% block title %}Masuk{% endblock %} 
+{% block content %}
+
+    <div class="head-title">
+        <div class="left">
+            <h1>Lapangan</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Admin</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Lapangan</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="btn-download">
+            <i class='bx bx-plus-circle'></i>
+            <span id="openModalBtn" class="text">Tambah Lapangan</span>
+        </a>
+    </div>
+
+    <div class="modal-container" id="modalContainer">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Tambah Data Lapangan</h2>
+                <button class="close-button" id="closeModalBtn">&times;</button>
+            </div>
+            
+            <form id="userForm">
+                <div class="profile-upload">
+                    <div class="profile-preview-lapangan">
+                        <img id="imagePreview" src="#" alt="Preview" style="display: none;">
+                    </div>
+                    <input type="file" id="profileImageLapangan" accept="image/*" style="display: none;">
+                    <button type="button" class="upload-button" id="uploadButton">
+                        Upload Foto
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="nama">Nama GOR</label>
+                    <input type="text" id="nama" name="nama" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="lokasi">Lokasi</label>
+                    <input type="text" id="lokasi" name="lokasi" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="kontak">Kontak</label>
+                    <input type="tel" id="kontak" name="kontak" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Lapangan:</label>
+                    <button type="button" class="add-court-btn" onclick="addCourtInput()">
+                        Tambah Lapangan
+                    </button>
+                    <div id="courtInputs" class="court-inputs"></div>
+                </div>
+
+                <button type="submit" class="submit-button">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-lapangan">
+        <div class="order">
+            <div class="head">
+                <h3>Recent Orders</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Lokasi</th>
+                        <th>Banner</th>
+                        <th>Kontak</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for dataLapangan in lapangan %}
+                        <tr>
+                            <td>{{ dataLapangan.nama }}</td>
+                            <td>{{ dataLapangan.lokasi }}</td>
+                            <td>
+                                <center>
+                                    <img class="imgLapangan" src="{{ url_for('static', filename='dist/img/gambarLapangan/' + dataLapangan.banner) }}">
+                                </center>
+                            </td>
+                            <td>{{ dataLapangan.kontak }}</td>
+                            <td>
+                                <div class="status">
+                                    <button onclick="editClick(this)" data-id="{{ dataLapangan._id }}" class="status process"><i class='bx bxs-edit'></i>Edit</button>
+                                    <button onclick="adminLapanganHapus(this)" class="status pending" data-id="{{ dataLapangan._id }}"><i class='bx bxs-trash' ></i>Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    $('#closeModalBtn').click(function() {
+        editMode = false
+        $('#modalContainer').fadeOut(300);
+        $('body').css('overflow', ''); // Restore body scroll
+    });
+    adminLapanganTambah()
+{% endblock %} 

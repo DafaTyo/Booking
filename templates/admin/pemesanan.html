@@ -1,0 +1,63 @@
+{% extends "admin/base.html" %} 
+{% block title %}Masuk{% endblock %} 
+{% block content %}
+
+    <div class="head-title">
+        <div class="left">
+            <h1>Pemesanan</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Admin</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Pemesanan</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="table-booking">
+        <div class="order">
+            <div class="head">
+                <h3>Recent Orders</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Nama Lapangan</th>
+                        <th>No Lapangan</th>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                        <th>Harga Per Jam</th>
+                        <th>Total Harga</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for dataPemesanan in pemesanan %}
+                        <tr>
+                            <td>{{ dataPemesanan.nama }}</td>
+                            <td>{{ dataPemesanan.email }}</td>
+                            <td>{{ dataPemesanan.nama_lapangan }}</td>
+                            <td>{{ dataPemesanan.detail_lapangan }}</td>
+                            <td>{{ dataPemesanan.tanggal }}</td>
+                            <td>{{ dataPemesanan.jam }}</td>
+                            <td>{{ dataPemesanan.harga_lapangan }}</td>
+                            <td>{{ dataPemesanan.harga_total }}</td>
+                            <td>
+                                <div class="status">
+                                    <button onclick="pemesananAdmin(this)" class="status pending" data-id="{{ dataPemesanan._id }}"><i class='bx bxs-trash'></i>Selesaikan</button>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

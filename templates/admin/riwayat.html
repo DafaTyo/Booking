@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %} 
+{% block title %}Masuk{% endblock %} 
+{% block content %}
+
+    <div class="head-title">
+        <div class="left">
+            <h1>Riwayat</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Admin</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Riwayat</a>
+                </li>
+            </ul>
+        </div>
+        <a href="/buatLaporanPemesanan" class="btn-download">
+            <i class='bx bx-plus-circle'></i>
+            <span class="text">Buat Laporan</span>
+        </a>
+    </div>
+
+
+    <div class="table-booking">
+        <div class="order">
+            <div class="head">
+                <h3>Recent Orders</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Nama Lapangan</th>
+                        <th>No Lapangan</th>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                        <th>Harga Per Jam</th>
+                        <th>Total Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for dataRiwayat in riwayat %}
+                        <tr>
+                            <td>{{ dataRiwayat.nama }}</td>
+                            <td>{{ dataRiwayat.email }}</td>
+                            <td>{{ dataRiwayat.nama_lapangan }}</td>
+                            <td>{{ dataRiwayat.detail_lapangan }}</td>
+                            <td>{{ dataRiwayat.tanggal }}</td>
+                            <td>{{ dataRiwayat.jam }}</td>
+                            <td>{{ dataRiwayat.harga_lapangan }}</td>
+                            <td>{{ dataRiwayat.harga_total }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

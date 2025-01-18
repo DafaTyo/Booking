@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %} 
+{% block title %}Masuk{% endblock %} 
+{% block content %}
+
+    <div class="head-title">
+        <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Admin</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="box-info">
+        <li>
+            <i class='bx bxs-calendar-check' ></i>
+            <span class="text">
+                <h3>{{ jumlah_booking }}</h3>
+                <p>Booking</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-group' ></i>
+            <span class="text">
+                <h3>{{ jumlah_pengguna }}</h3>
+                <p>Pengguna</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-dollar-circle' ></i>
+            <span class="text">
+                <h3>{{ total_pendapatan }}</h3>
+                <p>Total Pendapatan</p>
+            </span>
+        </li>
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            adminHome()
+        })
+    </script>
+{% endblock %}

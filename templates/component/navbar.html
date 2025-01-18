@@ -1,0 +1,92 @@
+<nav class="bg-white fixed w-full px-10 md:px-[6.5rem] shadow-md" id="navbar-home" style="z-index: 99;">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
+        <a href="{{ url_for('home') }}" class="flex items-end space-x-3 rtl:space-x-reverse">
+            <img src="{{ url_for('static', filename='dist/img/Logo.png') }}" class="h-6" alt="Flowbite Logo">
+        </a>
+        <div class="flex items-center lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+          <button class="flex items-end" onclick="toggleSidebar()" style="margin-right: 7px;">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="#1A56DB" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.08416 2.7512C2.22155 2.36044 2.6497 2.15503 3.04047 2.29242L3.34187 2.39838C3.95839 2.61511 4.48203 2.79919 4.89411 3.00139C5.33474 3.21759 5.71259 3.48393 5.99677 3.89979C6.27875 4.31243 6.39517 4.76515 6.4489 5.26153C6.47295 5.48373 6.48564 5.72967 6.49233 6H17.1305C18.8155 6 20.3323 6 20.7762 6.57708C21.2202 7.15417 21.0466 8.02369 20.6995 9.76275L20.1997 12.1875C19.8846 13.7164 19.727 14.4808 19.1753 14.9304C18.6236 15.38 17.8431 15.38 16.2821 15.38H10.9792C8.19028 15.38 6.79583 15.38 5.92943 14.4662C5.06302 13.5523 4.99979 12.5816 4.99979 9.64L4.99979 7.03832C4.99979 6.29837 4.99877 5.80316 4.95761 5.42295C4.91828 5.0596 4.84858 4.87818 4.75832 4.74609C4.67026 4.61723 4.53659 4.4968 4.23336 4.34802C3.91052 4.18961 3.47177 4.03406 2.80416 3.79934L2.54295 3.7075C2.15218 3.57012 1.94678 3.14197 2.08416 2.7512Z" fill="#1A56DB"/>
+                <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" fill="#1A56DB"/>
+                <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" fill="#1A56DB"/>
+            </svg>
+            <span id="cartItems" class="text-xs text-blue-700 min-w-5" style="margin-left: -2px;">()</span>
+          </button>
+            {% if session.nama %}
+            <div class="relative">
+              <button id="avatarButton" type="button">
+                  <img class="w-9 h-9 rounded-full cursor-pointer" src="https://static.vecteezy.com/system/resources/previews/018/742/015/original/minimal-profile-account-symbol-user-interface-theme-3d-icon-rendering-illustration-isolated-in-transparent-background-png.png" alt="User dropdown">
+              </button>
+              <!-- Dropdown menu -->
+              <div id="userDropdown" class="hidden absolute right-0 mt-4 bg-white rounded-lg shadow-lg border border-gray-200 transform translate-x-full" style="width: 200px;">
+                  <div class="px-3 pt-4">
+                      <p class="text-sm font-medium text-gray-900">{{ session.nama }}</p>
+                      <p class="text-xs font-normal text-gray-500 mt-1.5">{{ session.email }}</p>
+                  </div>
+                  <ul class="py-2">
+                      <li>
+                          <a href="/profile" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                  <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                              </svg>
+                              Profil Saya
+                          </a>
+                      </li>
+                      <li>
+                          <a href="/profile/riwayat" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"/>
+                              </svg>
+                              Riwayat Pesanan
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{ url_for('user_logout') }}" class="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition-colors duration-200">
+                              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/>
+                              </svg>
+                              Keluar
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          
+            {% else %}
+            <a href="{{ url_for('user_login') }}" style="margin-right: 7px;" class="text-[#0C359E] hidden sm:block w-24 bg-white font-medium border border-[#0C359E] rounded-lg text-sm px-4 py-1.5 text-center hover:brightness-125 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">Masuk</a>
+            <a href="{{ url_for('user_register') }}" class="text-white hidden sm:block w-24 bg-[#0C359E] font-medium border border-[#0C359E] rounded-lg text-sm px-4 py-1.5 text-center hover:brightness-125 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">Daftar</a>
+            {% endif %}
+  
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
+            <ul class="flex flex-col p-4 ms-10 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white">
+                <li>
+                    <a href="{{ url_for('home') }}" class="block py-2 px-3 {% if halaman == 'Beranda' %}sm:text-sm text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0{% else %}sm:text-sm text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0{% endif %}" aria-current="page">Beranda</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('daftar_lapangan') }}" class="block py-2 px-3 {% if halaman == 'Sewa Lapangan' %}sm:text-sm text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0{% else %}sm:text-sm text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0{% endif %}">Sewa Lapangan</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('blog') }}" class="block py-2 px-3 {% if halaman == 'Blog' %}sm:text-sm text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0{% else %}sm:text-sm text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0{% endif %}">Blog</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('tentang') }}" class="block py-2 px-3 {% if halaman == 'Tentang' %}sm:text-sm text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0{% else %}sm:text-sm text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0{% endif %}">Tentang Kami</a>
+                </li>
+                <li class="block sm:hidden">
+                    <a href="#" class="block py-2 px-3 sm:text-sm text-gray-900 rounded hover:bg-gray-100 sm:hidden lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0">Masuk</a>
+                </li>
+                <li class="block sm:hidden">
+                    <a href="#" class="block py-2 px-3 sm:text-sm text-gray-900 rounded hover:bg-gray-100 sm:hidden lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0">Daftar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  

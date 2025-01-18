@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {     
+    background: #fff;    
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #0C359E;
+    border-radius:10px;
+}
+
+#jadwalLapangan{
+    /* transition-all duration-300 ease-in-out */
+    transition: all 0.3s ease-in-out;
+}
+
+#splash{
+    width: 100%;
+    height: 100vh; 
+    background-color: rgb(32, 35, 48);
+    animation: closed 2s ease forwards 4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#splash_logo{
+    animation: fade 1s ease forwards 4s;
+}
+
+#splash_logo path:nth-child(3){ /* N */
+    stroke-dasharray: 884;
+    stroke-dashoffset: 884;
+    animation: 
+        line-animation 2s ease forwards,
+        fill-blue 0.5s ease forwards 3.5s;
+}
+
+#splash_logo path:nth-child(2){ /* o */
+    stroke-dasharray: 633;
+    stroke-dashoffset: 633;
+    animation: 
+        line-animation 2s ease forwards 0.3s,
+        fill-blue 0.5s ease forwards 3.5s;
+
+}
+
+#splash_logo path:nth-child(1){ /* u */
+    stroke-dasharray: 629;
+    stroke-dashoffset: 629;
+    animation: 
+        line-animation 2s ease forwards 0.6s,
+        fill-blue 0.5s ease forwards 3.5s;
+}
+ 
+#splash_logo path:nth-child(8){ /* A */
+    stroke-dasharray: 708;
+    stroke-dashoffset: 708;
+    animation: 
+        line-animation 2s ease forwards 0.9s,
+        fill-white 0.5s ease forwards 3.5s;
+}
+
+#splash_logo path:nth-child(7){ /* r */
+    stroke-dasharray: 370;
+    stroke-dashoffset: 370;
+    animation: 
+        line-animation 2s ease forwards 1.2s,
+        fill-white 0.5s ease forwards 3.5s;
+}
+
+#splash_logo path:nth-child(6){ /* e */
+    stroke-dasharray: 751;
+    stroke-dashoffset: 751;
+    animation: 
+        line-animation 2s ease forwards 1.5s,
+        fill-white 0.5s ease forwards 3.5s;
+}
+
+#splash_logo path:nth-child(5){ /* n */
+    stroke-dasharray: 630;
+    stroke-dashoffset: 630;
+    animation: 
+        line-animation 2s ease forwards 1.8s,
+        fill-white 0.5s ease forwards 3.5s;
+}
+
+#splash_logo path:nth-child(4){ /* a */
+    stroke-dasharray: 724;
+    stroke-dashoffset: 724;
+    animation: 
+        line-animation 2s ease forwards 2.1s,
+        fill-white 0.5s ease forwards 3.5s;
+}
+
+.jadwal_list{
+    background-color: #EEEEEE;
+    z-index: 1;
+}
+.jadwal_list::before {
+    content: '';
+    position: absolute;
+    background-color: #1A56DB;
+    width: 0;
+    height: 0;
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    transition: 0.5s;
+    transform: translateX(-2px);
+    z-index: -1;
+}
+
+.jadwal_list:has(.jadwal_check:checked)::before {
+    width: 600px;
+    height: 600px;
+}
+
+.jadwal_list p{
+    color: #454545;
+    transition: 0.7s;
+}
+
+.jadwal_list:has(.jadwal_check:checked) p {
+    color: white;
+}
+
+.jadwal_list:has(.jadwal_check:disabled){
+    background-color: #666666;
+}
+
+.jadwal_list:has(.jadwal_check:disabled) p{
+    color: white;
+}
+ 
+@keyframes line-animation {
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+ 
+@keyframes fill-blue {
+    from{
+        fill: transparent;
+    }
+    to{
+        fill: #0C359E;
+    }
+}
+ 
+@keyframes fill-white {
+    from{
+        fill: transparent;
+    }
+    to{
+        fill: white;
+    }
+}
+
+@keyframes closed {
+    from{
+        height: 100vh; 
+    }
+    to{
+        height: 0; 
+    }
+}
+
+@keyframes fade {
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes hideNav {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 100;
+    }
+}

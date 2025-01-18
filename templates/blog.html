@@ -1,0 +1,176 @@
+{% extends "base.html" %} 
+{% block title %}Home Page{% endblock %} 
+{% block content %}
+
+{% include "component/navbar.html" %}
+
+<main class="pt-[65px] relative">
+    {% include "component/sidebarCart.html" %}
+
+    <section>
+        <div>
+            <img src="{{ url_for('static', filename='dist/img/header.png') }}" alt="">
+        </div>
+        <div class="flex flex-col items-center mt-8">
+            <p class="text-[2.8rem] font-bold text-center">Our <span class="text-[#0C359E]">Blog</span></p>
+            <p class="text-center text-xl font-medium text-[#5C5C5C]">
+                Temukan panduan bulutangkis, teknik permainan, dan<br>
+                inspirasi untuk meningkatkan performa anda
+            </p>
+            <div class="flex items-center mt-6">
+                <div class="relative sm:w-[450px]">
+                    <input type="text" onkeyup="cariLapangan()" id="cari_lapangan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-5 p-2.5" placeholder="Temukan tips, trik, dan panduan bulutangkis" required />
+                </div>
+                <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <svg class="w-10 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full mt-14 px-4 lg:px-[6.5rem] mb-28">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" id="daftar_cari_lapangan">
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/09/27/tren-terkini-bola-basket-sebagai-olahraga-global/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog1.jpg') }}" alt="">
+                </a>
+              </div>
+              <div class="flex justify-between items-center">
+                  <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                    Teknik
+                  </span>
+                  <div class="text-gray-500 text-sm">
+                    27 September 2024
+                  </div>
+              </div>
+              <p class="font-medium mb-0.5 text-base mt-2">Tren Terkini Bola Basket sebagai Olahraga Global</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/10/10/tim-nasional-sepak-bola-indonesia-di-kualifikasi-piala-dunia-2026-zona-asia/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog2.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Informasi
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        10 Oktober 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">Tim Nasional Sepak Bola Indonesia di Kualifikasi Piala Dunia 2026 Zona Asia</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/09/13/panduan-lengkap-sepatu-bola-memilih-sepatu-yang-tepat-untuk-setiap-jenis-lapangan-sepak-bola-mini-soccer-atau-futsal/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog3.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Strategi
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        13 September 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">Memilih Sepatu yang Tepat untuk Setiap Jenis Lapangan Sepak Bola, Mini Soccer atau Futsal</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/10/10/perbedaan-antara-komentator-sepak-bola-dan-pundit/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog4.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Strategi
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        10 Oktober 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">Perbedaan Antara Komentator Sepak Bola dan Pundit</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/09/20/swiss-model-memahami-format-baru-liga-champions-uefa/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog5.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Berita
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        20 September 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">“Swiss Model” Memahami Format Baru Liga Champions UEFA</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/09/20/berbagai-manfaat-pemesanan-venue-olahraga-secara-online/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog6.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Berita
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        20 September 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">Berbagai Manfaat Pemesanan Venue Olahraga Secara Online</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/09/27/perbedaan-sensasi-bermain-antara-tenis-dan-padel/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog7.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Teknik
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        27 September 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">Perbedaan Sensasi Bermain antara Tenis dan Padel</p>
+            </div>
+            <div class="p-4 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <a href="https://bloggeloraid.wordpress.com/2024/10/10/bangkitnya-dunia-pandit-sepak-bola-di-indonesia-tren-yang-mengubah-permainan/">
+                  <img class="aspect-square max-w-full transform transition-transform duration-300 hover:scale-110" src="{{ url_for('static', filename='dist/img/gambarBlog/blog8.jpg') }}" alt="">
+                </a>
+              </div>
+                <div class="flex justify-between items-center">
+                    <span class="bg-blue-600 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                        Strategi
+                    </span>
+                    <div class="text-gray-500 text-sm">
+                        10 Oktober 2024
+                    </div>
+                </div>
+                <p class="font-medium mb-0.5 text-base mt-2">Bangkitnya Dunia pandit Sepak Bola di Indonesia</p>
+            </div>
+        </div>
+      </section>
+</main>
+
+{% include "component/footer.html" %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    sideCart()
+  })
+</script>
+
+{% endblock %}

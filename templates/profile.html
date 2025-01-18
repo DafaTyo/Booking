@@ -1,0 +1,238 @@
+{% extends "base.html" %} {% block title %}Home Page{% endblock %} {% block
+content %} {% include "component/navbar.html" %}
+
+<main id="main" class="pt-[100px] min-h-[85vh] relative">
+  {% include "component/sidebarCart.html" %}
+
+  <section class="w-full px-0 lg:px-[6.5rem]">
+    <div class="flex flex-col md:flex-row">
+      <!-- Sidebar -->
+      <div class="w-full md:w-1/4 bg-white rounded-lg" style="height: 200px; width: 230px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+        <h2 class="text-base font-medium text-gray-600 px-4 py-4">
+          Navigasi Profile
+        </h2>
+        <ul>
+          <li class="navProfile hover:cursor-pointer text-white bg-[#0C359E]">
+            <a class="flex items-center px-2 py-3 text-sm hover:bg-[#0C359E] hover:text-white">
+              <i class="fas fa-user mr-2"> </i>
+              Profile Saya
+            </a>
+          </li>
+          <li class="navProfile hover:cursor-pointer">
+            <a class="flex items-center px-2 py-3 text-sm hover:bg-[#0C359E] hover:text-white">
+              <i class="fas fa-history mr-2"> </i>
+              Riwayat Transaksi
+            </a>
+          </li>
+          <li class="navProfile hover:cursor-pointer">
+            <a class="flex items-center px-2 py-3 text-sm hover:bg-[#0C359E] hover:text-white">
+              <i class="fas fa-box-open mr-2"> </i>
+              Akses Pesanan
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Main Content -->
+      <form id="profil1" class="w-full md:w-3/4 bg-white rounded-lg p-6 ml-0 md:ml-6 mt-6 md:mt-0">
+        <input id="kode" name="kode" value="{{ profile.kode }}" hidden/>
+        <h1 class="text-3xl font-bold mb-2">
+          Welcome, {{ profile.nama }}!
+        </h1>
+        <p class="text-gray-600 mb-6">
+          Informasi mengenai profil dan preferensi kamu di layanan NOU Arena
+        </p>
+        <div class="flex flex-col gap-5 md:flex-row">
+          <div class="flex flex-col items-center mb-6 justify-center md:w-1/4">
+              <div class="profile-preview">
+                  <img 
+                    id="imagePreview"
+                    class="w-40 h-40 rounded-full mb-4 md:mb-0"
+                    height="100"
+                    src="
+                      {% if profile.foto %}
+                        {{ url_for('static', filename='dist/img/gambarPengguna/' + profile.foto) }}
+                      {% else %}
+                        {{ url_for('static', filename='dist/img/gambarPengguna/default/profile.jpg') }}
+                      {% endif %}
+                    "
+                    width="100"id="imagePreview"
+                    alt="Preview" 
+                  >
+              </div>
+              <input type="file" id="profileImage" accept="image/*" style="display: none;">
+              <button type="button" class=" bg-[#0C359E] mt-4 text-xs text-white px-4 py-2 rounded-lg" id="uploadButton">
+                  Upload Foto
+              </button>
+            </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:w-3/4">
+            <div class="col-span-2">
+              <label class="block mb-2 font-medium text-gray-700">
+                Nama Lengkap
+              </label>
+              <input
+                id="nama"
+                name="nama"
+                class="w-full p-2 border rounded-lg"
+                type="text"
+                value="{{ profile.nama }}"
+                required
+              />
+            </div>
+            <div>
+              <label class="block mb-2 font-medium text-gray-700">
+                Alamat
+              </label>
+              <input
+                id="alamat"
+                name="alamat"
+                class="w-full p-2 border rounded-lg"
+                type="text"
+                value="{{ profile.alamat }}"
+                required
+              />
+            </div>
+            <div>
+              <label class="block mb-2 font-medium text-gray-700">
+                No Telepon
+              </label>
+              <div class="relative">
+                <input
+                  id="no_telp"
+                  name="no_telp"
+                  class="w-full p-2 border rounded-lg"
+                  type="text"
+                  value="{{ profile.no_telp }}"
+                  required
+                />
+                <i
+                  class="fas fa-calendar-alt absolute right-3 top-3 text-gray-500"
+                >
+                </i>
+              </div>
+            </div>
+            <div>
+              <label class="block mb-2 font-medium text-gray-700">
+                email
+              </label>
+              <input
+                id="email"
+                name="email"
+                class="w-full p-2 border rounded-lg"
+                type="email"
+                value="{{ profile.email }}"
+                required
+              />
+            </div>
+            <div>
+              <label class="block mb-2 font-medium text-gray-700">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                class="w-full p-2 border rounded-lg"
+                type="password"
+                value=""
+              />
+              <p class="text-xs text-red-500">*isi untuk mengubah password</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="bg-blue-700 mt-4 text-sm text-white px-4 py-2 rounded-lg">
+            Simpan Perubahan
+          </button>
+        </div>
+      </form>
+      <div id="profil2" class="hidden w-full md:w-3/4 bg-white rounded-lg p-6 ml-0 md:ml-6 mt-6 md:mt-0">
+        <h1 class="text-3xl font-semibold mb-2">Transaksi Saya</h1>
+        <p class="text-gray-600 mb-6">Lihat semua transaksi kamu disini</p>
+        <div id="containerRiwayat">
+          <div class="mb-3 bg-white rounded-xl border border-gray-100 overflow-hidden p-6" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+            <div class="space-y-4">
+              <!-- Booking ID -->
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-gray-500 text-sm">123456789XCVB-22102024</div>
+                  <h2 class="text-4xl my-3 font-semibold text-black">Lapangan Smash 78</h2>
+                  <!-- Timestamps -->
+                  <div class="space-y-1 text-sm text-gray-600">
+                    <div class="flex">
+                      <span class="w-24">Dipesan</span>
+                      <span>: 22 Oktober 2024, 10:00</span>
+                    </div>
+                    <div class="flex">
+                      <span class="w-24">Dibayarkan</span>
+                      <span>: 22 Oktober 2024, 10:03</span>
+                    </div>
+                    <div class="flex">
+                      <span class="w-24">Selesai</span>
+                      <span>: 22 Oktober 2024, 12:05</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <div
+                    class="bg-[#0C9E2E] text-white px-4 py-2 rounded-full text-xs"
+                  >
+                    Selesai
+                  </div>
+                  <div class="mt-2 font-semibold">Rp 260.000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="profil3" class="hidden w-full md:w-3/4 bg-white rounded-lg p-6 ml-0 md:ml-6 mt-6 md:mt-0">
+        <h1 class="text-3xl font-semibold mb-2">Transaksi Saya</h1>
+        <p class="text-gray-600 mb-6">Lihat semua transaksi kamu disini</p>
+        <div id="containerPemesanan">
+          <div class="mb-4 bg-white rounded-xl border border-gray-100 overflow-hidden p-6" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+            <div class="space-y-4">
+              <!-- Booking ID -->
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-gray-500 text-sm">123456789XCVB-22102024</div>
+                  <h2 class="text-4xl my-3 font-semibold text-black">Lapangan Smash 78</h2>
+                  <!-- Timestamps -->
+                  <div class="space-y-1 text-sm text-gray-600">
+                    <div class="flex">
+                      <span class="w-24">Dipesan</span>
+                      <span>: 22 Oktober 2024, 10:00</span>
+                    </div>
+                    <div class="flex">
+                      <span class="w-24">Dibayarkan</span>
+                      <span>: 22 Oktober 2024, 10:03</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col items-end">
+                  <div class="bg-[#0C9E2E] text-white px-4 py-2 rounded-full text-xs">
+                    Terbayarkan
+                  </div>
+                  <div class="mt-2 font-semibold me-1">Rp 260.000</div>
+                </div>
+              </div>
+              <div class="flex">
+                <button class="bg-[#0C359E] text-white ms-auto px-4 py-3 rounded-lg text-xs">
+                  Perpanjangan waktu bermain
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+  const page = {{ page|tojson }};
+  document.addEventListener("DOMContentLoaded", function(){
+    profile()
+    sideCart()
+    editProfile()
+  })
+</script>
+
+{% include "component/footer.html" %} {% endblock %}

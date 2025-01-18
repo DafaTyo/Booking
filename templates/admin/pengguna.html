@@ -1,0 +1,117 @@
+{% extends "admin/base.html" %} 
+{% block title %}Masuk{% endblock %} 
+{% block content %}
+
+    <div class="head-title">
+        <div class="left">
+            <h1>Pengguna</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Admin</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Pengguna</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="btn-download">
+            <i class='bx bx-plus-circle'></i>
+            <span id="openModalBtn" class="text">Tambah Pengguna</span>
+        </a>
+    </div>
+
+    <div class="modal-container" id="modalContainer">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Tambah Data Pengguna</h2>
+                <button class="close-button" id="closeModalBtn">&times;</button>
+            </div>
+            
+            <form id="userForm">
+                <div class="profile-upload">
+                    <div class="profile-preview">
+                        <img id="imagePreview" src="#" alt="Preview" style="display: none;">
+                    </div>
+                    <input type="file" id="profileImage" accept="image/*" style="display: none;">
+                    <button type="button" class="upload-button" id="uploadButton">
+                        Upload Foto
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" name="no_telp" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="alamat">Alamat</label>
+                    <textarea id="alamat" class="form-input" name="alamat" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-lapangan">
+        <div class="order">
+            <div class="head">
+                <h3>Recent Orders</h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>No Telepon</th>
+                        <th>Alamat</th>
+                        <th>Foto</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for dataPengguna in pengguna %}
+                        <tr>
+                            <td>{{ dataPengguna.nama }}</td>
+                            <td>{{ dataPengguna.email }}</td>
+                            <td>{{ dataPengguna.no_telp }}</td>
+                            <td>{{ dataPengguna.alamat }}</td>
+                            <td>
+                                <center>
+                                    <img class="imgPengguna" src="{% if dataPengguna.foto == '' %}{{ url_for('static', filename='dist/img/gambarPengguna/default/profile.jpg') }}{% else %}{{ url_for('static', filename='dist/img/gambarPengguna/' + dataPengguna.foto) }}{% endif %}">
+                                </center>
+                            </td>
+                            <td>
+                                <center>
+                                    <div class="status">
+                                        <span onclick="adminPenggunaHapus(this)" class="status pending" data-id="{{ dataPengguna._id }}"><i class='bx bxs-trash' ></i>Hapus</span>
+                                    </div>
+                                </center>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    adminPenggunaTambah()
+{% endblock %} 

@@ -1,0 +1,62 @@
+<section id="jadwal" class="w-full px-2 lg:px-[6.5rem] mt-5 overflow-hidden transition-all duration-1000 ease-in-out">
+    <p class="text-[15px] font-medium"><span class="text-[21px] pe-1">››</span> Jadwal</p>
+        <div class="px-5 mt-7">
+            <p class="text-[18px] font-semibold mb-2">Pilih Jadwal Booking</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 rounded-md border-2 py-1.5 px-5 mb-8">
+                <div id="containerTanggal" class="grid grid-cols-4 md:grid-cols-7">
+                    
+                </div>
+                <div class="w-[250px] relative z-11 ms-0 lg:ms-auto my-auto">
+                    <button id="lapanganButton" class="flex w-full items-center justify-between rounded-lg bg-white py-2 px-4 ring-1 ring-gray-300">
+                        <span id="daftarLapangan" class="text-sm">Lapangan 1</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="keyboard_arrow_up">
+                                <path id="Vector 11" d="M1 1H13" stroke="#1C1B1F" stroke-width="2" stroke-linecap="round"/>
+                                <path id="Vector 12" d="M1 7H13" stroke="#1C1B1F" stroke-width="2" stroke-linecap="round"/>
+                                <path id="Vector 13" d="M1 13H13" stroke="#1C1B1F" stroke-width="2" stroke-linecap="round"/>
+                            </g>
+                        </svg>
+                    </button>
+                
+                    <ul id="lapanganMenu" class="hidden z-2 w-[250px] absolute top-full mt-0 w-full rounded bg-gray-50 ring-1 ring-gray-300">
+                    </ul>
+                </div>
+            </div>
+            <div class="rounded-md flex items-center border-2 py-3 px-5 mb-5">
+                <div>
+                    <img alt="A volleyball court surrounded by trees and palm trees" class="w-80 rounded-lg" src="{{ url_for('static', filename='dist/img/sewaLapangan1.png') }}"/>
+                </div>
+                <div class="ms-10">
+                    <p class="font-lg md:text-xl font-medium mb-4">Lapangan 1</p>
+                    <div class="flex items-center mb-2">
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="#5C5C5C" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.8415 4.57533V5.19199L11.8915 3.48366C10.7749 2.84199 9.21654 2.84199 8.1082 3.48366L5.1582 5.20033V4.57533C5.1582 2.70033 6.1832 1.66699 8.0582 1.66699H11.9415C13.8165 1.66699 14.8415 2.70033 14.8415 4.57533Z" fill="#5C5C5C"/>
+                            <path d="M14.866 6.64186L14.7494 6.58353L13.616 5.93353L11.266 4.5752C10.5493 4.15853 9.44935 4.15853 8.73268 4.5752L6.38268 5.9252L5.24935 6.59186L5.09935 6.66686C3.64102 7.6502 3.54102 7.83353 3.54102 9.40853V13.1752C3.54102 14.7502 3.64102 14.9335 5.13268 15.9419L8.73268 18.0169C9.09102 18.2335 9.54102 18.3252 9.99935 18.3252C10.4493 18.3252 10.9077 18.2252 11.266 18.0169L14.8993 15.9169C16.366 14.9335 16.4577 14.7585 16.4577 13.1752V9.40853C16.4577 7.83353 16.3577 7.6502 14.866 6.64186ZM12.3243 11.2502L11.816 11.8752C11.7327 11.9669 11.6743 12.1419 11.6827 12.2669L11.7327 13.0669C11.766 13.5585 11.416 13.8085 10.9577 13.6335L10.216 13.3335C10.0993 13.2919 9.90768 13.2919 9.79102 13.3335L9.04935 13.6252C8.59102 13.8085 8.24102 13.5502 8.27435 13.0585L8.32435 12.2585C8.33268 12.1335 8.27435 11.9585 8.19102 11.8669L7.67435 11.2502C7.35768 10.8752 7.49935 10.4585 7.97435 10.3335L8.74935 10.1335C8.87435 10.1002 9.01602 9.98353 9.08268 9.88353L9.51602 9.21686C9.78268 8.8002 10.2077 8.8002 10.4827 9.21686L10.916 9.88353C10.9827 9.99186 11.1327 10.1002 11.2493 10.1335L12.0243 10.3335C12.4993 10.4585 12.641 10.8752 12.3243 11.2502Z" fill="#5C5C5C"/>
+                        </svg>
+                        <p class="text-xs ms-5 text-[#5C5C5C]">Badminton</p>
+                    </div>
+                    <div class="flex items-center mb-3">
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="#5C5C5C" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_914_2310)">
+                            <path d="M6.3582 2.97507C6.50769 2.89353 6.66654 3.01897 6.66654 3.18924V14.4667C6.66654 14.664 6.53145 14.8306 6.3582 14.9251L4.39987 16.0417C3.0332 16.8251 1.9082 16.1751 1.9082 14.5917V6.4834C1.9082 5.9584 2.2832 5.3084 2.74987 5.04173L6.3582 2.97507Z" fill="#5C5C5C"/>
+                            <path d="M12.2219 5.06214C12.3922 5.1465 12.5 5.32013 12.5 5.51021V16.2868C12.5 16.6553 12.115 16.8972 11.783 16.7372L8.40798 15.1112C8.23498 15.0279 8.125 14.8528 8.125 14.6608V3.83878C8.125 3.46792 8.51456 3.22613 8.8469 3.39071L12.2219 5.06214Z" fill="#5C5C5C"/>
+                            <path d="M18.334 5.40806V13.5164C18.334 14.0414 17.959 14.6914 17.4923 14.9581L14.7076 16.554C14.3743 16.7451 13.959 16.5044 13.959 16.1202V5.32338C13.959 5.14387 14.0552 4.97813 14.2111 4.88914L15.8423 3.95806C17.209 3.17473 18.334 3.82473 18.334 5.40806Z" fill="#5C5C5C"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_914_2310">
+                            <rect width="20" height="20" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                        <p class="text-xs ms-5 text-[#5C5C5C]">Outdoor</p>
+                    </div>
+                    <a onclick="jadwalLapangan()" class="text-white flex items-center bg-[#0C359E] font-medium border border-[#0C359E] hover:bg-white hover:text-[#0C359E] hover:cursor-pointer rounded-md text-[10px] px-3 py-2 text-center me-3">12 jadwal tersedia</a>
+                </div>
+            </div>
+            <div id="jadwalLapangan" class="overflow-hidden mb-16 grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            </div>
+        </div>
+      </section>
+      <div id="lanjutPembayaran" class="fixed bottom-0 w-full z-40 bg-white flex justify-center transition-all duration-1000 ease-in-out" style="box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2)">
+        <a href="{{ url_for('pembayaran') }}" class="w-full mx-[7.75rem] text-white my-3 hidden sm:block bg-[#0C359E] font-medium border border-[#0C359E] rounded-md text-sm px-4 py-2 text-center brightness-125">Lanjutkan Pembayaran</a>
+      </div>
