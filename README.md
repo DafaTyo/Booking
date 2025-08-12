@@ -69,7 +69,7 @@ Aplikasi pemesanan lapangan badminton secara online yang memudahkan pengguna unt
 
 ## 📸 Screenshot
 
-*(Tambahkan screenshot UI di sini)*
+![Dashboard](static/dist/img/demo1.png)
 
 ## 👥 Kontributor
 
