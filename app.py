@@ -11,17 +11,20 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, 
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
 from io import BytesIO
+from dotenv import load_dotenv
 import locale
 import json
 import os
 import re
 
+load_dotenv()
+
 app = Flask(__name__)
-app.secret_key = 'sjdcasjbcsabfh'
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient(os.getenv("MONGO_URI"))
+db = client.get_database()
 
-db = client['Database_Nou']
 users_collection = db['users']
 dataLapangan_collection = db['dataLapangan']
 admins_collection = db['admin']
