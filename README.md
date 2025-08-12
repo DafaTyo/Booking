@@ -1,9 +1,3 @@
-Oke, berarti kita tambahin bagian **Credit / Kontributor** di README biar ada nama lu sama temen lu.
-Gue buatin versinya kayak gini:
-
----
-
-````markdown
 # 🏸 Badminton Court Booking Web App
 
 Aplikasi pemesanan lapangan badminton secara online yang memudahkan pengguna untuk melihat jadwal, melakukan booking, memberikan rating, serta mengelola profil. Mendukung banyak lokasi lapangan dan memiliki sistem admin untuk pengelolaan data.
@@ -57,12 +51,8 @@ Aplikasi pemesanan lapangan badminton secara online yang memudahkan pengguna unt
 3. **Buat File `.env`**
 
    ```env
-   FLASK_APP=app.py
-   FLASK_ENV=development
-   SECRET_KEY=your_secret_key
+   FLASK_SECRET_KEY=your_secret_key
    MONGO_URI=mongodb://localhost:27017/nama_database
-   UPLOAD_FOLDER=static/uploads
-   SESSION_LIFETIME_DAYS=7
    ```
 
 4. **Jalankan Aplikasi**
