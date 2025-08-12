@@ -1,4 +1,4 @@
-# 🏸 Badminton Court Booking Web App
+# 🏸 Nou Arena Booking Web App
 
 Aplikasi pemesanan lapangan badminton secara online yang memudahkan pengguna untuk melihat jadwal, melakukan booking, memberikan rating, serta mengelola profil. Mendukung banyak lokasi lapangan dan memiliki sistem admin untuk pengelolaan data.
 
