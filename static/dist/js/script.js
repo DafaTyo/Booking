@@ -79,37 +79,35 @@ function jadwalLapangan() {
 
 // kodingan untuk membuat tanggal agar sesuai dengan tanggal sekarang
 function buatTanggal() {
-  const days = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
-  const container = document.getElementById("containerTanggal");
-  const jadwal_lapangan = document.getElementById("jadwalLapangan");
+const days = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
+const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+const container = document.getElementById("containerTanggal");
+const jadwal_lapangan = document.getElementById("jadwalLapangan");
 
-  // Get current date
-  const today = new Date();
+const today = new Date();
 
-  // Create 7 days starting from today
-  for (let i = 0; i < 7; i++) {
-    const date = new Date(today);
-    date.setDate(today.getDate() + i);
+for (let i = 0; i < 7; i++) {
+  const date = new Date(today);
+  date.setDate(today.getDate() + i);
 
-    const dayName = days[date.getDay()];
-    const dateNum = date.getDate();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Add leading zero to month
-    const dayFormatted = dateNum.toString().padStart(2, '0');  // Add leading zero to date
-    const formattedDate = `${dayFormatted}-${month}-${date.getFullYear()}`;
+  const dayName = days[date.getDay()];
+  const dateNum = date.getDate();
+  const monthName = months[date.getMonth()]; // ✅ ambil nama bulan
+  
+  const dayFormatted = dateNum.toString().padStart(2, '0');
+  const formattedDate = `${dayFormatted}-${monthName}-${date.getFullYear()}`;
 
-    // Set default classes and add selected class if it's today
-    const defaultClasses =
-      "btnTanggal w-16 h-16 me-5 text-[13px] rounded-md flex text-center items-center justify-center hover:bg-[#0C359E] hover:text-white";
-    const textColor = i === 0 ? "text-white bg-[#0C359E]" : "text-black";
+  const defaultClasses =
+    "btnTanggal w-16 h-16 me-5 text-[13px] rounded-md flex text-center items-center justify-center hover:bg-[#0C359E] hover:text-white";
+  const textColor = i === 0 ? "text-white bg-[#0C359E]" : "text-black";
 
-    container.innerHTML += ` 
-      <button 
-        data-tanggal="${formattedDate}" 
-        class="${defaultClasses} ${textColor}"
-      >${dayName}<br>${dayFormatted} ${month}</button>
-    `;
-  }
-
+  container.innerHTML += ` 
+    <button 
+      data-tanggal="${formattedDate}" 
+      class="${defaultClasses} ${textColor}"
+    >${dayName}<br>${dayFormatted} ${monthName}</button>
+  `;
+}
   // Add click event listeners
   document.querySelectorAll(".btnTanggal").forEach((button) => {
     button.addEventListener("click", function () {
@@ -567,8 +565,19 @@ function pembayaranAkhir(){
                 "harga_total": parseInt($('#totalHarga').text().replace("Rp ", "").replace(".", ""))
               },
               success: function () {
-                sessionStorage.removeItem("selectedItems");
-                window.location.href = '/profile/riwayat';
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Pembayaran Berhasil',
+                    text: 'Klik tombol di bawah untuk melihat riwayat.',
+                    confirmButtonText: 'Lihat Riwayat',
+                    showCancelButton: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        sessionStorage.removeItem("selectedItems");
+                        window.location.href = '/profile/riwayat';
+                    }
+                });
+
               }
             })
           }

@@ -55,6 +55,16 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
       swiper1();
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+              swal.fire({
+                icon: '{{ category }}',  // success, error, warning, info
+                title: '{{ message }}',
+              });
+            {% endfor %}
+        {% endif %}
+      {% endwith %}
     });
 </script>
 {% endblock %}

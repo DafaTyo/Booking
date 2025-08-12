@@ -200,6 +200,7 @@ def user_register():
         
         # Validasi input kosong
         if not nama_lengkap or not email or not password:
+            print('haloo')
             flash('Semua kolom harus diisi!', 'error')
             return redirect('/register')
         
@@ -257,7 +258,7 @@ def user_login():
             flash('Login berhasil!', 'success')
             return redirect(url_for('home'))
         else:
-            flash('email atau password salah!', 'danger')
+            flash('email atau password salah!', 'error')
     return render_template('login.html')
 
 @app.route('/logout')
