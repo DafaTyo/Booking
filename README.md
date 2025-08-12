@@ -36,7 +36,7 @@ Aplikasi pemesanan lapangan badminton secara online yang memudahkan pengguna unt
    ```bash
    git clone https://github.com/DafaTyo/Booking.git
    cd repo-name
-````
+   ```
 
 2. **Buat Virtual Environment & Install Dependencies**
 
